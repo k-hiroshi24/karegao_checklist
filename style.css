@@ -136,3 +136,37 @@ h2 {
     display: block; /* ブロック要素にしてスペースを確保 */
     margin: 1rem 0;
 }
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1.5rem 1.5rem; /* スマートフォン向けにパディングを調整 */
+        width: calc(100% - 20px); /* 左右に10pxずつ余白を確保 */
+        margin: 0 10px; /* 左右に10pxの余白 */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .button-group {
+        flex-direction: column; /* ボタンを縦に並べる */
+        gap: 0.8rem;
+    }
+
+    .answer-btn {
+        width: 100%; /* ボタンの幅を100%にする */
+    }
+
+    #back-btn {
+        margin-top: 1rem;
+    }
+}
