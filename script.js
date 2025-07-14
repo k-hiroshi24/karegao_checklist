@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoryTitleEl = document.getElementById('category-title'); // カテゴリ表示用
     const progressBar = document.getElementById('progress-bar');
     const progressText = document.getElementById('progress-text');
-    const resultMessage = document.getElementById('result-message');
+    const resultTitle = document.getElementById('result-title');
+    const resultText = document.getElementById('result-text');
 
     // --- 質問項目（ダミー） ---
     const questions = [
@@ -105,13 +106,38 @@ document.addEventListener('DOMContentLoaded', () => {
         quizScreen.classList.add('hidden');
         resultScreen.classList.remove('hidden');
 
-        if (yesCount >= 3) {
-            resultMessage.textContent = '「枯顔症候群」の可能性があります。専門家への相談をお勧めします。';
-            resultMessage.classList.add('highlight'); // 強調表示クラスを追加
+        let title = '';
+        let text = '';
+        let resultClass = '';
+
+        if (yesCount <= 5) {
+            title = 'イキイキ上級者';
+            text = 'あなたはまだまだイキイキ顔！<br>日々の呼吸や姿勢の整いが、あなたの若々しさを支えています。<br>今の状態を保つために、「深い呼吸」「笑顔」「日常のボディケア」をぜひ続けてください。';
+            resultClass = 'level-1';
+        } else if (yesCount <= 10) {
+            title = 'ちょい枯れ予備軍';
+            text = '油断すると“枯れ顔”に傾くかも…？<br>ちょっと疲れが顔に出やすくなってきた頃。<br>呼吸が浅くなったり、笑顔が減っていませんか？<br>“見た目より中身”のケアを今から意識すると10年後に差が出ます！';
+            resultClass = 'level-2';
+        } else if (yesCount <= 15) {
+            title = '酸素不足型 枯顔シグナル';
+            text = '顔だけじゃない。体の中も“酸素不足”かもしれません。<br>呼吸、姿勢、顔の筋肉の動き…それぞれが弱くなると、表情まで枯れていきます。<br>今が“潤いの分かれ道”。日常の酸素循環を取り戻すケアを始めましょう。';
+            resultClass = 'level-3';
+        } else if (yesCount <= 20) {
+            title = '枯顔リスク 高';
+            text = '表情筋と回復力が、かなり弱ってきています。<br>「顔が疲れて見える」「メイクが乗らない」など、外見以上に中の巡りが止まり始めているサイン。<br>“顔から変える”のではなく、“酸素と回復力から変える”ケアを急ぎましょう。';
+            resultClass = 'level-4';
         } else {
-            resultMessage.textContent = '現時点では「枯顔症候群」の可能性は低いでしょう。';
-            resultMessage.classList.remove('highlight'); // 強調表示クラスを削除
+            title = '枯顔症候群 発症レベル';
+            text = '顔も体も、内側から潤いを失いかけています。<br>化粧やマッサージではどうにもならない段階に来ているかも。<br>本気で変えるなら、体全体のリセットが必要です。今が変わる最大のチャンス！';
+            resultClass = 'level-5';
         }
+
+        resultTitle.textContent = title;
+        resultText.innerHTML = text; // <br>を解釈するためにinnerHTMLを使用
+        
+        // 前のクラスを削除してから新しいクラスを追加
+        resultTitle.className = '';
+        resultTitle.classList.add(resultClass);
     }
 
     // １つ前の質問に戻る

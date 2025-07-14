@@ -129,13 +129,33 @@ h2 {
     background-color: #218838;
 }
 
-#result-message.highlight {
-    color: #dc3545; /* 赤系の色 */
-    font-weight: bold;
-    font-size: 1.3rem;
-    display: block; /* ブロック要素にしてスペースを確保 */
-    margin: 1rem 0;
+#result-content {
+    margin: 2rem 0;
 }
+
+#result-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    color: #fff;
+    display: inline-block;
+}
+
+#result-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    text-align: left;
+    margin-top: 1.5rem;
+}
+
+/* 診断レベルごとの色設定 */
+.level-1 { background-color: #28a745; } /* 緑 */
+.level-2 { background-color: #17a2b8; } /* 青緑 */
+.level-3 { background-color: #ffc107; color: #333; } /* 黄 */
+.level-4 { background-color: #fd7e14; } /* オレンジ */
+.level-5 { background-color: #dc3545; } /* 赤 */
 
 @media (max-width: 600px) {
     .container {
@@ -169,4 +189,9 @@ h2 {
     #back-btn {
         margin-top: 1rem;
     }
+}
+
+
+#result-title{
+    min-height: 0;
 }
