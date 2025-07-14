@@ -79,14 +79,30 @@ h2 {
 }
 
 #category-title {
-    color: #007bff;
     font-size: 1rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    border: 1px solid #007bff;
+    border: 1px solid;
     display: inline-block;
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
+    transition: color 0.4s, border-color 0.4s;
+}
+
+/* カテゴリごとの色設定 */
+.category-face {
+    color: #E91E63; /* ピンク系 */
+    border-color: #E91E63;
+}
+
+.category-body {
+    color: #2196F3; /* ブルー系 */
+    border-color: #2196F3;
+}
+
+.category-mind {
+    color: #673AB7; /* パープル系 */
+    border-color: #673AB7;
 }
 
 .button-group {

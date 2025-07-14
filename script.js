@@ -79,6 +79,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const question = questions[currentQuestionIndex];
         categoryTitleEl.textContent = question.category;
         questionEl.textContent = question.text;
+
+        // カテゴリに応じてクラスを変更
+        categoryTitleEl.className = 'category-title'; // Reset classes
+        if (question.category === '表情・顔編') {
+            categoryTitleEl.classList.add('category-face');
+        } else if (question.category === '身体・感覚編') {
+            categoryTitleEl.classList.add('category-body');
+        } else if (question.category === '心・行動編') {
+            categoryTitleEl.classList.add('category-mind');
+        }
+
         updateProgress();
         // 最初の質問では戻るボタンを無効化
         backBtn.disabled = currentQuestionIndex === 0;
