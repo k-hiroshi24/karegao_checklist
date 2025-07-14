@@ -129,6 +129,11 @@ h2 {
     background-color: #218838;
 }
 
+#result-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
 #result-content {
     margin: 2rem 0;
 }
@@ -151,7 +156,7 @@ h2 {
 }
 
 /* 診断レベルごとの色設定 */
-.level-1 { background-color: #28a745; } /* 緑 */
+.level-1 { background: linear-gradient(145deg, #ffd700, #daa520); } /* ゴールド */
 .level-2 { background-color: #17a2b8; } /* 青緑 */
 .level-3 { background-color: #ffc107; color: #333; } /* 黄 */
 .level-4 { background-color: #fd7e14; } /* オレンジ */

@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoryTitleEl = document.getElementById('category-title'); // カテゴリ表示用
     const progressBar = document.getElementById('progress-bar');
     const progressText = document.getElementById('progress-text');
+    const resultIcon = document.getElementById('result-icon');
     const resultTitle = document.getElementById('result-title');
     const resultText = document.getElementById('result-text');
 
@@ -33,11 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
         { category: '身体・感覚編', text: '朝起きても疲れが残っている' },
         { category: '身体・感覚編', text: '日中ボーッとする時間が増えた' },
         { category: '身体・感覚編', text: '呼吸が浅いと自覚している' },
-        { category: '身体・感覚編', text: '歩くとき足が重い／すり足になっている' },
+        { category: '身体・感覚編', text: '歩くとき足が重い／下を向いて歩くことが多くなった' },
         { category: '身体・感覚編', text: '姿勢が猫背気味、胸が開かない' },
         { category: '身体・感覚編', text: '頭皮が硬い・顔がむくみやすい' },
         { category: '身体・感覚編', text: '肩こり・首こりがいつもある' },
-        { category: '身体・感覚編', text: '「背中に死んだ魚を背負ってる」と感じるときがある' },
+        { category: '身体・感覚編', text: '背中が重たい' },
         { category: '身体・感覚編', text: '疲れると声が小さくなる' },
         { category: '身体・感覚編', text: '睡眠が浅い、夜中に目が覚める' },
         // 心・行動編
@@ -110,28 +111,36 @@ document.addEventListener('DOMContentLoaded', () => {
         let text = '';
         let resultClass = '';
 
+        let icon = '';
+
         if (yesCount <= 5) {
             title = 'イキイキ上級者';
             text = 'あなたはまだまだイキイキ顔！<br>日々の呼吸や姿勢の整いが、あなたの若々しさを支えています。<br>今の状態を保つために、「深い呼吸」「笑顔」「日常のボディケア」をぜひ続けてください。';
             resultClass = 'level-1';
+            icon = '😄'; // ニコニコ
         } else if (yesCount <= 10) {
             title = 'ちょい枯れ予備軍';
             text = '油断すると“枯れ顔”に傾くかも…？<br>ちょっと疲れが顔に出やすくなってきた頃。<br>呼吸が浅くなったり、笑顔が減っていませんか？<br>“見た目より中身”のケアを今から意識すると10年後に差が出ます！';
             resultClass = 'level-2';
+            icon = '🙂'; // 普通
         } else if (yesCount <= 15) {
             title = '酸素不足型 枯顔シグナル';
             text = '顔だけじゃない。体の中も“酸素不足”かもしれません。<br>呼吸、姿勢、顔の筋肉の動き…それぞれが弱くなると、表情まで枯れていきます。<br>今が“潤いの分かれ道”。日常の酸素循環を取り戻すケアを始めましょう。';
             resultClass = 'level-3';
+            icon = '😐'; // 真顔
         } else if (yesCount <= 20) {
             title = '枯顔リスク 高';
             text = '表情筋と回復力が、かなり弱ってきています。<br>「顔が疲れて見える」「メイクが乗らない」など、外見以上に中の巡りが止まり始めているサイン。<br>“顔から変える”のではなく、“酸素と回復力から変える”ケアを急ぎましょう。';
             resultClass = 'level-4';
+            icon = '😟'; // 心配
         } else {
             title = '枯顔症候群 発症レベル';
             text = '顔も体も、内側から潤いを失いかけています。<br>化粧やマッサージではどうにもならない段階に来ているかも。<br>本気で変えるなら、体全体のリセットが必要です。今が変わる最大のチャンス！';
             resultClass = 'level-5';
+            icon = '😭'; // 泣き顔
         }
 
+        resultIcon.textContent = icon;
         resultTitle.textContent = title;
         resultText.innerHTML = text; // <br>を解釈するためにinnerHTMLを使用
         
